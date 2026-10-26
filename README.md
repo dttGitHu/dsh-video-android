@@ -1,4 +1,4 @@
-# dsh-film-studio
+# dsh-video-android
 
 手机 DSHA（Linux arm64 + glibc，proot 容器）上的**视频制作工作台**插件，按「整合式二次开发」思路
 从现有 DSH 插件拆出可复用模块重新组装。纯 JS，无原生模块，不依赖 Windows 专有路径。
@@ -17,7 +17,7 @@
 ## 目录结构
 
 ```
-dsh-film-studio/
+dsh-video-android/
 ├── lib/
 │   ├── index.js                 # Config + apply（工具/路由/进程都在 ctx.effect 里）
 │   ├── settings.js              # 配置解析 + 项目路径
@@ -212,7 +212,7 @@ workspace/
 ## 验证
 
 ```bash
-cd /root/.dsh/plugin-src/dsh-film-studio
+cd /root/.dsh/plugin-src/dsh-video-android
 
 node scripts/verify.mjs            # 21 项
 node scripts/verify-providers.mjs  # 42 项

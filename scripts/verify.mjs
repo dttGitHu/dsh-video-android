@@ -45,7 +45,7 @@ ctx.provide('tools', toolsService)
 const fiber = ctx.plugin(plugin, {})
 await fiber.await()
 
-check('插件名正确', plugin.name === 'dsh-film-studio', `实际 ${plugin.name}`)
+check('插件名正确', plugin.name === 'dsh-video-android', `实际 ${plugin.name}`)
 check('inject 只声明 tools', Array.isArray(plugin.inject) && plugin.inject.join(',') === 'tools', JSON.stringify(plugin.inject))
 check('工具注册数为 13（探测 + 生成 x2 + 分镜 x4 + 导出 x3 + 提示词 x3）', registry.size === 13, `实际 ${registry.size}`)
 check('注册了 film_probe_ffmpeg', registry.has('film_probe_ffmpeg'))

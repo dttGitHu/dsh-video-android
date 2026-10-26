@@ -1,7 +1,7 @@
 {
-  "name": "dsh-film-studio",
+  "name": "dsh-video-android",
   "version": "0.2.0",
-  "description": "DSHA 手机端视频制作工作台：分镜编排、多供应商池调度、FFmpeg 本地导出（整合式二次开发，纯 JS，无原生模块）",
+  "description": "DSHA 手机端视频工作台：分镜编排、多供应商池调度、FFmpeg 本地导出、提示词优化、窄屏工作台（纯 JS，无原生模块）",
   "license": "MIT",
   "type": "module",
   "main": "lib/index.js",
@@ -21,11 +21,48 @@
   ],
   "scripts": {
     "verify": "node scripts/verify.mjs",
-    "scan": "node /root/.dsh/profiles/web/node_modules/dsh-android-portability/tools/cli.js . --strict"
+    "scan": "node scripts/scan.mjs"
   },
   "dsh": {
     "bundle": {
       "patch": "./cordis.patch.yml"
+    },
+    "dshhub": {
+      "schemaVersion": 1,
+      "displayName": "视频工作台（安卓）",
+      "summary": "在手机上做视频：分镜编排、多供应商（即梦/豆包/通义万相/可灵）自动切换、FFmpeg 合成、提示词优化、窄屏工作台",
+      "categories": [
+        "视频",
+        "创作",
+        "工具"
+      ],
+      "surfaces": [
+        "tool"
+      ],
+      "capabilities": {
+        "provides": [
+          "工具：film_probe_ffmpeg",
+          "工具：film_generate_image / film_generate_video",
+          "工具：film_create_storyboard / film_list_scenes / film_update_scene / film_regenerate_scene",
+          "工具：film_check_assets / film_export_mp4 / film_export_progress",
+          "工具：film_evaluate_scene_prompt / film_optimize_scene_prompt / film_optimize_all_prompts",
+          "工作台页面：/film-studio（移动端窄屏）"
+        ],
+        "reads": [
+          "workspace/projects/<id>/storyboard.json",
+          "workspace/providers.json",
+          "ffmpeg / ffprobe"
+        ],
+        "network": [
+          "火山方舟（即梦/豆包）",
+          "阿里 DashScope（通义万相）",
+          "可灵 Kling AI"
+        ]
+      },
+      "compatibility": {
+        "dsh": ">=0.2.0",
+        "node": ">=20"
+      }
     }
   },
   "keywords": [
@@ -40,5 +77,14 @@
   ],
   "engines": {
     "node": ">=20"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dttGitHu/dsh-video-android.git"
+  },
+  "homepage": "https://github.com/dttGitHu/dsh-video-android",
+  "bugs": {
+    "url": "https://github.com/dttGitHu/dsh-video-android/issues"
+  },
+  "author": "dttGitHu"
 }

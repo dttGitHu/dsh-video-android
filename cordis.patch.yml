@@ -1,4 +1,4 @@
-# dsh-film-studio bundle patch.
+# dsh-video-android bundle patch.
 #
 # 由 `dsh plugin --profile web add <本目录>` 自动挂载；也可以手工把这段 insert
 # 抄进 /root/.dsh/profiles/web/cordis.patch.yml。
@@ -6,8 +6,8 @@
 # config 字段即 lib/index.js 里 Config 的形状，留空走默认值。
 # 环境变量优先级更高（FILM_STUDIO_* / JIMENG_API_KEY / KLING_ACCESS_KEY / KLING_SECRET_KEY）。
 - insert:
-    - id: film-studio
-      name: dsh-film-studio
+    - id: dsh-video-android
+      name: dsh-video-android
       config:
         # ffmpegPath: /usr/bin/ffmpeg
         # ffprobePath: /usr/bin/ffprobe
