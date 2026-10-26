@@ -1,0 +1,37 @@
+# dsh-film-studio bundle patch.
+#
+# 由 `dsh plugin --profile web add <本目录>` 自动挂载；也可以手工把这段 insert
+# 抄进 /root/.dsh/profiles/web/cordis.patch.yml。
+#
+# config 字段即 lib/index.js 里 Config 的形状，留空走默认值。
+# 环境变量优先级更高（FILM_STUDIO_* / JIMENG_API_KEY / KLING_ACCESS_KEY / KLING_SECRET_KEY）。
+- insert:
+    - id: film-studio
+      name: dsh-film-studio
+      config:
+        # ffmpegPath: /usr/bin/ffmpeg
+        # ffprobePath: /usr/bin/ffprobe
+        # outputDir: /root/Documents/film-studio
+        timeoutMs: 20000
+        providers:
+          order: [jimeng, kling]
+          jimeng:
+            # apiKey 留空则读 JIMENG_API_KEY
+            apiKey: ''
+            # baseURL: https://ark.cn-beijing.volces.com/api/v3
+            # imageModel: doubao-seedream-3-0-t2i-250415
+            # videoModel: doubao-seedance-1-0-lite-t2v-250428
+          kling:
+            # 留空则读 KLING_ACCESS_KEY / KLING_SECRET_KEY
+            accessKey: ''
+            secretKey: ''
+            # baseURL: https://api.klingai.com
+            # imageModel: kling-v1
+            # videoModel: kling-v1
+        polling:
+          maxPolls: 60
+          initialDelayMs: 5000
+          maxDelayMs: 20000
+        failover:
+          sameProviderRetries: 1
+          retryDelayMs: 800

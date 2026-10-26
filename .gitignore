@@ -1,0 +1,15 @@
+# 依赖（本插件依赖由 DSH 宿主提供，正常不会有）
+node_modules/
+
+# 工作台写入的密钥文件，绝不能进仓库
+providers.json
+
+# 运行产物
+output/
+*.migrated
+*.tmp
+*.log
+
+# 系统杂项
+.DS_Store
+Thumbs.db

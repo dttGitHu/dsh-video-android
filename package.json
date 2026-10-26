@@ -1,0 +1,44 @@
+{
+  "name": "dsh-film-studio",
+  "version": "0.2.0",
+  "description": "DSHA 手机端视频制作工作台：分镜编排、多供应商池调度、FFmpeg 本地导出（整合式二次开发，纯 JS，无原生模块）",
+  "license": "MIT",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": {
+      "default": "./lib/index.js"
+    },
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "cordis.patch.yml",
+    "scripts",
+    "README.md",
+    "assets"
+  ],
+  "scripts": {
+    "verify": "node scripts/verify.mjs",
+    "scan": "node /root/.dsh/profiles/web/node_modules/dsh-android-portability/tools/cli.js . --strict"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "dsha",
+    "video",
+    "storyboard",
+    "ffmpeg",
+    "android",
+    "arm64"
+  ],
+  "engines": {
+    "node": ">=20"
+  }
+}
